@@ -1,5 +1,8 @@
+// import component files
 import TopButtons from "./components/TopButtons"
 import Inputs from "./components/Inputs"
+import TimeAndLocation from "./components/TimeAndLocation"
+import TempAndDetails from "./components/TempAndDetails"
 
 const App = () => {
   return (
@@ -7,6 +10,9 @@ const App = () => {
     bg-gradient-to-br shadow-xl shadow-gray-400 from-cyan-600 to-blue-700">
       <TopButtons />
       <Inputs />
+
+      <TimeAndLocation />
+      <TempAndDetails />
     </div>
   )
 }

@@ -6,7 +6,7 @@ const TopButtons = () => {
     const cities = [
         {
             id: 1,
-            name: 'Abuja'
+            name: 'Orlando'
         },
         {
             id: 2,
@@ -14,7 +14,7 @@ const TopButtons = () => {
         },
         {
             id: 3,
-            name: 'Tokyo'
+            name: 'Abuja'
         },
         {
             id: 4,
@@ -22,7 +22,7 @@ const TopButtons = () => {
         },
         {
             id: 5,
-            name: 'Cape Town'
+            name: 'New York'
         }
     ]
 
