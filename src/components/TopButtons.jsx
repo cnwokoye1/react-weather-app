@@ -17,11 +17,11 @@ const TopButtons = () => {
     },
     {
       id: 4,
-      name: "Dubai",
+      name: "Paris",
     },
     {
       id: 5,
-      name: "Venice",
+      name: "Tokyo",
     },
   ];
 

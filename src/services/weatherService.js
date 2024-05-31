@@ -50,6 +50,10 @@ const formatCurrent = (data) => {
     details,
     icon: iconUrlFromCode(icon),
     formattedLocalTime,
+    dt,
+    timezone,
+    lat,
+    lon,
   };
 };
 
@@ -58,6 +62,14 @@ const getFormattedWeatherData = async (searchParams) => {
     "weather",
     searchParams
   ).then(formatCurrent);
+
+  const { dt, lat, lon, timezone } = formattedCurrentWeather;
+
+  const formattedForecastWeather = await getWeatherData("forecast", {
+    lat,
+    lon,
+    units: searchParams.units,
+  }).then((d) => formattedForecastWeather(dt, timezone, d.list));
 
   return { ...formattedCurrentWeather };
 };
