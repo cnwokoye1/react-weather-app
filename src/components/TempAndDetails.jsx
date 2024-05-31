@@ -25,19 +25,19 @@ const TempAndDetails = ({
       id: 1,
       Icon: FaThermometerEmpty,
       title: "Feels Like",
-      value: "22°",
+      value: `${feels_like.toFixed()}°`,
     },
     {
       id: 2,
       Icon: BiSolidDropletHalf,
       title: "Humidity",
-      value: "346%",
+      value: `${humidity.toFixed()}%`,
     },
     {
       id: 3,
       Icon: FiWind,
       title: "Wind",
-      value: "11 km/h",
+      value: `${speed.toFixed()} km/h`,
     },
   ];
 
@@ -46,25 +46,25 @@ const TempAndDetails = ({
       id: 1,
       Icon: GiSunrise,
       title: "Sunrise",
-      value: "5:33 AM",
+      value: sunrise,
     },
     {
       id: 2,
       Icon: GiSunset,
       title: "Sunset",
-      value: "8:33 PM",
+      value: sunset,
     },
     {
       id: 3,
       Icon: MdKeyboardArrowUp,
       title: "High",
-      value: "37°",
+      value: `${temp_max.toFixed()}°`,
     },
     {
       id: 4,
       Icon: MdKeyboardArrowDown,
       title: "Low",
-      value: "7°",
+      value: `${temp_min.toFixed()}°`,
     },
   ];
 
