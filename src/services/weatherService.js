@@ -1,5 +1,6 @@
 import { DateTime } from "luxon";
 import { CgDetailsLess } from "react-icons/cg";
+import { TiThLarge } from "react-icons/ti";
 
 const API_KEY = "0500322a3ee5619b280d9481188825a3";
 const BASE_URL = "https://api.openweathermap.org/data/2.5/";
@@ -57,6 +58,33 @@ const formatCurrent = (data) => {
   };
 };
 
+// secs corresponds w/ datetime, offset w/ timezone, and data w/ d.list
+const formatForecastWeather = (secs, offset, data) => {
+  console.log(secs);
+  // hourly
+  const hourly = data
+    .filter((f) => f.dt > secs)
+    .map((f) => ({
+      temp: f.main.temp,
+      title: formatToLocalTime(f.dt, offset, "hh:mm a"),
+      icon: iconUrlFromCode(f.weather[0].icon),
+      date: f.dt_txt,
+    }))
+    .slice(0, 5);
+
+  // daily
+  const daily = data
+    .filter((f) => f.dt_txt.slice(-8) === "00:00:00")
+    .map((f) => ({
+      temp: f.main.temp,
+      title: formatToLocalTime(f.dt, offset, "ccc"),
+      icon: iconUrlFromCode(f.weather[0].icon),
+      date: f.dt_txt,
+    }));
+
+  return { hourly, daily };
+};
+
 const getFormattedWeatherData = async (searchParams) => {
   const formattedCurrentWeather = await getWeatherData(
     "weather",
@@ -69,9 +97,9 @@ const getFormattedWeatherData = async (searchParams) => {
     lat,
     lon,
     units: searchParams.units,
-  }).then((d) => formattedForecastWeather(dt, timezone, d.list));
+  }).then((d) => formatForecastWeather(dt, timezone, d.list)); // d.list = data of future forecasts
 
-  return { ...formattedCurrentWeather };
+  return { ...formattedCurrentWeather, ...formattedForecastWeather };
 };
 
 export default getFormattedWeatherData;
