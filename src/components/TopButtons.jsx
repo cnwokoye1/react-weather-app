@@ -13,7 +13,7 @@ const TopButtons = ({ setQuery }) => {
     },
     {
       id: 3,
-      name: "Abuja",
+      name: "Berlin",
     },
     {
       id: 4,
