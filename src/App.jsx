@@ -15,7 +15,7 @@ function capitalizeFirstLetter(string) {
 }
 
 const App = () => {
-  const [query, setQuery] = useState({ q: "london" });
+  const [query, setQuery] = useState({ q: "orlando" });
   const [units, setUnits] = useState("metric");
   const [weather, setWeather] = useState(null);
 
